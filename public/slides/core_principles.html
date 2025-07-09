@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1"></script>
+    <style>
+      .slide-container {
+        width: 1280px;
+        min-height: 720px;
+        background: #F3F4F6;
+        color: #111827;
+        font-family: 'Inter', Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        padding: 40px;
+        position: relative;
+      }
+      .title {
+        font-size: 36px;
+        font-weight: bold;
+        color: #1E3A8A;
+        margin-bottom: 30px;
+        text-align: center;
+      }
+      .principles-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 30px;
+        flex-grow: 1;
+      }
+      .principle {
+        background: white;
+        border-radius: 8px;
+        padding: 25px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+      }
+      .principle-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+      .principle-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        flex-shrink: 0;
+      }
+      .principle-title {
+        font-size: 24px;
+        font-weight: bold;
+      }
+      .principle-content {
+        font-size: 18px;
+        line-height: 1.5;
+      }
+      .logo {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        width: 80px;
+        height: 80px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide-container">
+      <h1 class="title">Core Principles</h1>
+      
+      <div class="principles-grid">
+        <div class="principle">
+          <div class="principle-header">
+            <div class="principle-icon" style="background-color: #3B82F6;">
+              <i class="fas fa-cubes fa-lg" style="color: white;"></i>
+            </div>
+            <h2 class="principle-title" style="color: #3B82F6;">Structured</h2>
+          </div>
+          <div class="principle-content">
+            <p>Advisor AGI breaks down complex problems into manageable components, providing advice in a clear, organized format:</p>
+            <ul class="mt-2 ml-5 list-disc">
+              <li>Systematic problem decomposition</li>
+              <li>Organized 4-block response format</li>
+              <li>Hierarchical information presentation</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="principle">
+          <div class="principle-header">
+            <div class="principle-icon" style="background-color: #8B5CF6;">
+              <i class="fas fa-glasses fa-lg" style="color: white;"></i>
+            </div>
+            <h2 class="principle-title" style="color: #8B5CF6;">Transparent</h2>
+          </div>
+          <div class="principle-content">
+            <p>Every recommendation comes with clear explanations of the reasoning process, ensuring users understand the "why" behind the advice:</p>
+            <ul class="mt-2 ml-5 list-disc">
+              <li>Explicit reasoning chains</li>
+              <li>Source attribution when applicable</li>
+              <li>Confidence levels for recommendations</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="principle">
+          <div class="principle-header">
+            <div class="principle-icon" style="background-color: #3B82F6;">
+              <i class="fas fa-balance-scale fa-lg" style="color: white;"></i>
+            </div>
+            <h2 class="principle-title" style="color: #3B82F6;">Ethical</h2>
+          </div>
+          <div class="principle-content">
+            <p>All advice adheres to strong ethical guidelines, prioritizing user well-being and societal benefit:</p>
+            <ul class="mt-2 ml-5 list-disc">
+              <li>Harm prevention and user safety</li>
+              <li>Fairness and bias mitigation</li>
+              <li>Privacy and data protection</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="principle">
+          <div class="principle-header">
+            <div class="principle-icon" style="background-color: #8B5CF6;">
+              <i class="fas fa-sync-alt fa-lg" style="color: white;"></i>
+            </div>
+            <h2 class="principle-title" style="color: #8B5CF6;">Self-Analyzing</h2>
+          </div>
+          <div class="principle-content">
+            <p>The system continuously evaluates its own performance and improves based on feedback:</p>
+            <ul class="mt-2 ml-5 list-disc">
+              <li>Integrated feedback mechanisms</li>
+              <li>Performance metrics tracking</li>
+              <li>Continuous learning and adaptation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <img src="/home/ubuntu/advisor-architecture-presentation-v3/advisor_logo.png" alt="Advisor AGI Logo" class="logo">
+    </div>
+  </body>
+</html>
+
