@@ -530,7 +530,7 @@ function App() {
                 </CardHeader>
                 <CardContent>
                   <div className="text-center">
-                    <Button onClick={() => window.open("/presentation", "_blank")} variant="outline">
+                    <Button onClick={() => window.open("/slides/index.html", "_blank")} variant="outline">
                       Open Architecture Presentation
                     </Button>
                   </div>
