@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1"></script>
+    <style>
+      .slide-container {
+        width: 1280px;
+        min-height: 720px;
+        background: #F3F4F6;
+        color: #111827;
+        font-family: 'Inter', Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        padding: 40px;
+        position: relative;
+      }
+      .title {
+        font-size: 36px;
+        font-weight: bold;
+        color: #1E3A8A;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+      .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        flex-grow: 1;
+      }
+      .diagram-container {
+        width: 100%;
+        max-width: 900px;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+      .diagram-image {
+        width: 900px;
+        height: auto;
+      }
+      .response-blocks {
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+        max-width: 900px;
+      }
+      .block {
+        width: 100px;
+        height: 100px;
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+      .block-label {
+        font-weight: bold;
+        text-align: center;
+      }
+      .logo {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        width: 80px;
+        height: 80px;
+      }
+      .highlight {
+        color: #8B5CF6;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide-container">
+      <h1 class="title">Data Flow</h1>
+      
+      <div class="content">
+        <div class="diagram-container">
+          <img src="/home/ubuntu/advisor-architecture-presentation-v3/data_flow.png" alt="Advisor AGI Data Flow Diagram" class="diagram-image">
+        </div>
+        
+        <div class="response-blocks">
+          <div class="text-center">
+            <div class="block" style="background-color: #3B82F6;">
+              <i class="fas fa-lightbulb fa-2x text-white"></i>
+            </div>
+            <p class="block-label">Insight</p>
+          </div>
+          <div class="text-center">
+            <div class="block" style="background-color: #8B5CF6;">
+              <i class="fas fa-list-ol fa-2x text-white"></i>
+            </div>
+            <p class="block-label">Options</p>
+          </div>
+          <div class="text-center">
+            <div class="block" style="background-color: #3B82F6;">
+              <i class="fas fa-check-circle fa-2x text-white"></i>
+            </div>
+            <p class="block-label">Recommendation</p>
+          </div>
+          <div class="text-center">
+            <div class="block" style="background-color: #8B5CF6;">
+              <i class="fas fa-question-circle fa-2x text-white"></i>
+            </div>
+            <p class="block-label">Considerations</p>
+          </div>
+        </div>
+      </div>
+      
+      <img src="/home/ubuntu/advisor-architecture-presentation-v3/advisor_logo.png" alt="Advisor AGI Logo" class="logo">
+    </div>
+  </body>
+</html>
+

@@ -530,7 +530,7 @@ function App() {
                 </CardHeader>
                 <CardContent>
                   <div className="text-center">
-                    <Button onClick={() => window.open('https://docs.google.com/presentation/d/1fJdHlDl7ZDgvYySWnxFkSN5kYMMrzMBS/edit?usp=sharing&ouid=111661644166106769460&rtpof=true&sd=true', '_blank')} variant="outline">
+                    <Button onClick={() => window.open("/presentation", "_blank")} variant="outline">
                       Open Architecture Presentation
                     </Button>
                   </div>

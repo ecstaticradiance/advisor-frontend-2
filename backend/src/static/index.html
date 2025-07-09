@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advisor AGI Architecture Presentation</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container {
+            max-width: 1200px;
+            width: 90%;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 30px;
+            border-radius: 50%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin-bottom: 40px;
+        }
+        
+        .slides-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .slide-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        
+        .slide-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            border-color: #667eea;
+        }
+        
+        .slide-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .slide-card p {
+            color: #7f8c8d;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+        
+        .slide-number {
+            background: #667eea;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin: 0 auto 15px;
+            font-size: 0.9em;
+        }
+        
+        .navigation {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .nav-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .nav-btn:hover {
+            background: #5a6fd8;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .slides-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="advisor_logo.png" alt="Advisor AGI Logo" class="logo">
+        <h1>Advisor AGI Architecture</h1>
+        <p class="subtitle">Comprehensive Technical Presentation</p>
+        
+        <div class="slides-grid">
+            <div class="slide-card" onclick="openSlide('title.html')">
+                <div class="slide-number">1</div>
+                <h3>Title & Introduction</h3>
+                <p>Welcome to the Advisor AGI architecture presentation</p>
+            </div>
+            
+            <div class="slide-card" onclick="openSlide('vision_mission.html')">
+                <div class="slide-number">2</div>
+                <h3>Vision & Mission</h3>
+                <p>Our core vision and mission for Advisor AGI</p>
+            </div>
+            
+            <div class="slide-card" onclick="openSlide('core_principles.html')">
+                <div class="slide-number">3</div>
+                <h3>Core Principles</h3>
+                <p>Fundamental principles guiding our development</p>
+            </div>
+            
+            <div class="slide-card" onclick="openSlide('current_architecture.html')">
+                <div class="slide-number">4</div>
+                <h3>Current Architecture</h3>
+                <p>Overview of the existing system architecture</p>
+            </div>
+            
+            <div class="slide-card" onclick="openSlide('data_flow.html')">
+                <div class="slide-number">5</div>
+                <h3>Data Flow</h3>
+                <p>How data flows through the system</p>
+            </div>
+            
+            <div class="slide-card" onclick="openSlide('technical_stack.html')">
+                <div class="slide-number">6</div>
+                <h3>Technical Stack</h3>
+                <p>Technologies and frameworks we use</p>
+            </div>
+            
+            <div class="slide-card" onclick="openSlide('security_privacy.html')">
+                <div class="slide-number">7</div>
+                <h3>Security & Privacy</h3>
+                <p>Our approach to security and privacy protection</p>
+            </div>
+            
+            <div class="slide-card" onclick="openSlide('future_architecture.html')">
+                <div class="slide-number">8</div>
+                <h3>Future Global Architecture</h3>
+                <p>Vision for the future global architecture</p>
+            </div>
+            
+            <div class="slide-card" onclick="openSlide('microservices_evolution.html')">
+                <div class="slide-number">9</div>
+                <h3>Microservices Evolution</h3>
+                <p>Evolution towards microservices architecture</p>
+            </div>
+            
+            <div class="slide-card" onclick="openSlide('plugin_system.html')">
+                <div class="slide-number">10</div>
+                <h3>Plugin System</h3>
+                <p>Extensible plugin architecture</p>
+            </div>
+            
+            <div class="slide-card" onclick="openSlide('ai_evolution.html')">
+                <div class="slide-number">11</div>
+                <h3>AI Evolution</h3>
+                <p>Evolution of AI capabilities and models</p>
+            </div>
+            
+            <div class="slide-card" onclick="openSlide('conclusion.html')">
+                <div class="slide-number">12</div>
+                <h3>Conclusion</h3>
+                <p>Summary and next steps</p>
+            </div>
+        </div>
+        
+        <div class="navigation">
+            <a href="title.html" class="nav-btn">Start Presentation</a>
+        </div>
+    </div>
+    
+    <script>
+        function openSlide(slideFile) {
+            window.open(slideFile, '_blank');
+        }
+    </script>
+</body>
+</html>
+
