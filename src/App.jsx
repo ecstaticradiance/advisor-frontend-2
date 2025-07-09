@@ -599,6 +599,9 @@ function App() {
               </Card>
             </TabsContent>
           </Tabs>
+          <footer className="text-center mt-8 text-gray-500 dark:text-gray-400 text-sm">
+            &copy; {new Date().getFullYear()} Advisor FirstSentience Ltd. All rights reserved.
+          </footer>
         </div>
       </div>
     </Router>
@@ -610,8 +613,6 @@ export default App
 
 
 
-          <footer className="text-center mt-8 text-gray-500 dark:text-gray-400 text-sm">
-            &copy; {new Date().getFullYear()} Advisor FirstSentience Ltd. All rights reserved.
-          </footer>
+
 
 
