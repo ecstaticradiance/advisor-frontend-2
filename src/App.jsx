@@ -18,7 +18,7 @@ function App() {
   const [feedback, setFeedback] = useState({ rating: 0, comment: '' })
   const [showFeedback, setShowFeedback] = useState(false)
   
-  // Состояния для навигационных вкладок
+  // States for navigation tabs
   const [roadmapData, setRoadmapData] = useState(null)
   const [userStoriesData, setUserStoriesData] = useState(null)
   const [legalData, setLegalData] = useState(null)
@@ -47,12 +47,12 @@ function App() {
         setResponse(data)
         setShowFeedback(true)
       } else {
-        const errorData = await res.json().catch(() => ({ error: 'Неизвестная ошибка' }))
-        setError(errorData.error || `Ошибка сервера: ${res.status}`)
+        const errorData = await res.json().catch(() => ({ error: 'Unknown error' }))
+        setError(errorData.error || `Server error: ${res.status}`)
       }
     } catch (error) {
       console.error('Error:', error)
-      setError('Ошибка подключения к серверу. Проверьте интернет-соединение.')
+      setError('Connection error. Please check your internet connection.')
     } finally {
       setLoading(false)
     }
@@ -86,7 +86,7 @@ function App() {
     }
   }
 
-  // Функции загрузки данных для навигационных вкладок
+  // Functions to load data for navigation tabs
   const loadTabData = async (endpoint, setData, tabName) => {
     if (tabLoading[tabName]) return
     
@@ -99,17 +99,17 @@ function App() {
         const data = await res.json()
         setData(data)
       } else {
-        setTabErrors(prev => ({ ...prev, [tabName]: `Ошибка загрузки: ${res.status}` }))
+        setTabErrors(prev => ({ ...prev, [tabName]: `Loading error: ${res.status}` }))
       }
     } catch (error) {
       console.error(`Error loading ${tabName}:`, error)
-      setTabErrors(prev => ({ ...prev, [tabName]: 'Ошибка подключения к серверу' }))
+      setTabErrors(prev => ({ ...prev, [tabName]: 'Connection error' }))
     } finally {
       setTabLoading(prev => ({ ...prev, [tabName]: false }))
     }
   }
 
-  // Загрузка Roadmap из локального JSON файла
+  // Load Roadmap from local JSON file
   const loadRoadmap = async () => {
     setTabLoading(prev => ({ ...prev, roadmap: true }))
     setTabErrors(prev => ({ ...prev, roadmap: null }))
@@ -119,17 +119,17 @@ function App() {
         const data = await res.json()
         setRoadmapData(data)
       } else {
-        setTabErrors(prev => ({ ...prev, roadmap: `Ошибка загрузки: ${res.status}` }))
+        setTabErrors(prev => ({ ...prev, roadmap: `Loading error: ${res.status}` }))
       }
     } catch (error) {
       console.error('Error loading roadmap JSON:', error)
-      setTabErrors(prev => ({ ...prev, roadmap: 'Ошибка подключения к серверу' }))
+      setTabErrors(prev => ({ ...prev, roadmap: 'Connection error' }))
     } finally {
       setTabLoading(prev => ({ ...prev, roadmap: false }))
     }
   }
 
-  // Загрузка User Stories из локального JSON файла
+  // Load User Stories from local JSON file
   const loadUserStories = async () => {
     setTabLoading(prev => ({ ...prev, userStories: true }))
     setTabErrors(prev => ({ ...prev, userStories: null }))
@@ -139,17 +139,17 @@ function App() {
         const data = await res.json()
         setUserStoriesData(data)
       } else {
-        setTabErrors(prev => ({ ...prev, userStories: `Ошибка загрузки: ${res.status}` }))
+        setTabErrors(prev => ({ ...prev, userStories: `Loading error: ${res.status}` }))
       }
     } catch (error) {
       console.error('Error loading user stories JSON:', error)
-      setTabErrors(prev => ({ ...prev, userStories: 'Ошибка подключения к серверу' }))
+      setTabErrors(prev => ({ ...prev, userStories: 'Connection error' }))
     } finally {
       setTabLoading(prev => ({ ...prev, userStories: false }))
     }
   }
 
-  // Загрузка юридических документов из локальной папки
+  // Load legal documents from local folder
   const loadLegal = async () => {
     setTabLoading(prev => ({ ...prev, legal: true }))
     setTabErrors(prev => ({ ...prev, legal: null }))
@@ -162,10 +162,10 @@ function App() {
         'REGISTER.pdf',
         'CERTIFICATE.pdf'
       ];
-      setLegalData({ title: 'Юридические документы', documents: files });
+      setLegalData({ title: 'Legal Documents', documents: files });
     } catch (error) {
       console.error('Error loading legal documents:', error)
-      setTabErrors(prev => ({ ...prev, legal: 'Ошибка загрузки юридических документов' }))
+      setTabErrors(prev => ({ ...prev, legal: 'Error loading legal documents' }))
     } finally {
       setTabLoading(prev => ({ ...prev, legal: false }))
     }
@@ -195,16 +195,16 @@ function App() {
               Advisor AGI
             </h1>
             <p className="text-lg text-gray-600 dark:text-gray-300">
-              Умный AI-консультант с этичными и обоснованными советами
+              Smart AI-consultant with ethical and reasoned advice
             </p>
           </header>
 
           <Tabs defaultValue="chat" className="max-w-4xl mx-auto">
             <TabsList className="grid w-full grid-cols-5">
-              <TabsTrigger value="chat">Чат</TabsTrigger>
+              <TabsTrigger value="chat">Chat</TabsTrigger>
               <TabsTrigger value="roadmap">Roadmap</TabsTrigger>
               <TabsTrigger value="stories">User Stories</TabsTrigger>
-              <TabsTrigger value="architecture">Архитектура</TabsTrigger>
+              <TabsTrigger value="architecture">Architecture</TabsTrigger>
               <TabsTrigger value="legal">Legal</TabsTrigger>
             </TabsList>
 
@@ -213,16 +213,16 @@ function App() {
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <MessageCircle className="h-5 w-5" />
-                    Задайте ваш вопрос
+                    Ask your question
                   </CardTitle>
                   <CardDescription>
-                    Получите структурированный совет с обоснованием и этической оценкой
+                    Get structured advice with justification and ethical evaluation
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <Textarea
-                      placeholder="Опишите вашу ситуацию или задайте вопрос..."
+                      placeholder="Describe your situation or ask a question..."
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
                       className="min-h-[100px]"
@@ -231,12 +231,12 @@ function App() {
                       {loading ? (
                         <div className="flex items-center gap-2">
                           <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
-                          Обрабатываю...
+                          Processing...
                         </div>
                       ) : (
                         <div className="flex items-center gap-2">
                           <Send className="h-4 w-4" />
-                          Получить совет
+                          Get advice
                         </div>
                       )}
                     </Button>
@@ -249,7 +249,7 @@ function App() {
                   <CardContent className="pt-6">
                     <div className="flex items-center gap-2 text-red-600 dark:text-red-400">
                       <AlertCircle className="h-5 w-5" />
-                      <p className="font-medium">Ошибка</p>
+                      Error
                     </div>
                     <p className="text-red-600 dark:text-red-400 mt-2">{error}</p>
                   </CardContent>
@@ -260,25 +260,25 @@ function App() {
                 <div className="space-y-4">
                   <ResponseBlock
                     icon={Brain}
-                    title="Совет"
+                    title="Advice"
                     content={response.advice}
                     color="border-l-blue-500"
                   />
                   <ResponseBlock
                     icon={Eye}
-                    title="Обоснование"
+                    title="Reasoning"
                     content={response.reasoning_path}
                     color="border-l-green-500"
                   />
                   <ResponseBlock
                     icon={Shield}
-                    title="Этическая оценка"
+                    title="Ethical Evaluation"
                     content={response.ethical_check}
                     color="border-l-yellow-500"
                   />
                   <ResponseBlock
                     icon={MessageCircle}
-                    title="Самооценка"
+                    title="Self-assessment"
                     content={response.self_reflection}
                     color="border-l-purple-500"
                   />
@@ -286,9 +286,9 @@ function App() {
                   {showFeedback && (
                     <Card>
                       <CardHeader>
-                        <CardTitle>Оцените ответ</CardTitle>
+                        <CardTitle>Rate the response</CardTitle>
                         <CardDescription>
-                          Ваша обратная связь поможет улучшить качество советов
+                          Your feedback will help improve the quality of advice
                         </CardDescription>
                       </CardHeader>
                       <CardContent className="space-y-4">
@@ -305,17 +305,16 @@ function App() {
                           ))}
                         </div>
                         <Textarea
-                          placeholder="Дополнительные комментарии (необязательно)"
+                         placeholder="Additional comments (optional)"
                           value={feedback.comment}
                           onChange={(e) => setFeedback({ ...feedback, comment: e.target.value })}
                         />
                         <div className="flex gap-2">
                           <Button onClick={submitFeedback} disabled={feedback.rating === 0}>
-                            <ThumbsUp className="h-4 w-4 mr-2" />
-                            Отправить отзыв
+                            Submit feedback
                           </Button>
                           <Button variant="outline" onClick={() => setShowFeedback(false)}>
-                            Пропустить
+                            Skip
                           </Button>
                         </div>
                       </CardContent>
@@ -328,16 +327,16 @@ function App() {
             <TabsContent value="roadmap">
               <Card>
                 <CardHeader>
-                  <CardTitle>Roadmap проекта</CardTitle>
+                  <CardTitle>Project Roadmap</CardTitle>
                   <CardDescription>
-                    План развития Advisor AGI
+                    Advisor AGI Development Plan
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   {!roadmapData && !tabLoading.roadmap && !tabErrors.roadmap && (
                     <div className="text-center">
                       <Button onClick={loadRoadmap} variant="outline">
-                        Загрузить roadmap
+                        Load roadmap
                       </Button>
                     </div>
                   )}
@@ -345,7 +344,7 @@ function App() {
                   {tabLoading.roadmap && (
                     <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
                       <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-500"></div>
-                      Загрузка roadmap...
+                      Loading roadmap...
                     </div>
                   )}
                   
@@ -353,7 +352,7 @@ function App() {
                     <div className="text-red-600 dark:text-red-400">
                       {tabErrors.roadmap}
                       <Button onClick={loadRoadmap} variant="outline" size="sm" className="ml-2">
-                        Повторить
+                        Retry
                       </Button>
                     </div>
                   )}
@@ -368,9 +367,9 @@ function App() {
                               <div className="flex items-center justify-between">
                                 <CardTitle className="text-lg">{phase.title}</CardTitle>
                                 <Badge variant={phase.status === 'in_progress' ? 'default' : phase.status === 'planned' ? 'secondary' : 'outline'}>
-                                  {phase.status === 'in_progress' ? 'В процессе' : 
-                                   phase.status === 'planned' ? 'Запланировано' : 
-                                   phase.status === 'research' ? 'Исследование' : phase.status}
+                                  {phase.status === 'in_progress' ? 'In Progress' : 
+                                   phase.status === 'planned' ? 'Planned' : 
+                                   phase.status === 'research' ? 'Research' : phase.status}
                                 </Badge>
                               </div>
                               <CardDescription>{phase.description}</CardDescription>
@@ -378,7 +377,7 @@ function App() {
                             <CardContent>
                               <div className="space-y-2">
                                 <div className="flex justify-between text-sm">
-                                  <span>Прогресс</span>
+                                  <span>Progress</span>
                                   <span>{phase.completion}%</span>
                                 </div>
                                 <div className="w-full bg-gray-200 rounded-full h-2">
@@ -388,7 +387,7 @@ function App() {
                                   ></div>
                                 </div>
                                 <div className="mt-3">
-                                  <p className="text-sm font-medium mb-2">Ключевые функции:</p>
+                                  <p className="text-sm font-medium mb-2">Key Features:</p>
                                   <ul className="text-sm text-gray-600 dark:text-gray-300 space-y-1">
                                     {phase.features?.map((feature, index) => (
                                       <li key={index} className="flex items-center gap-2">
@@ -407,24 +406,24 @@ function App() {
                       {roadmapData.key_metrics && (
                         <Card className="bg-blue-50 dark:bg-blue-900/20">
                           <CardHeader>
-                            <CardTitle className="text-lg">Ключевые метрики</CardTitle>
+                            <CardTitle className="text-lg">Key Metrics</CardTitle>
                           </CardHeader>
                           <CardContent>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                               <div>
-                                <p className="font-medium">Целевая аудитория:</p>
+                                <p className="font-medium">Target Audience:</p>
                                 <p className="text-gray-600 dark:text-gray-300">{roadmapData.key_metrics.target_users}</p>
                               </div>
                               <div>
-                                <p className="font-medium">Цель точности:</p>
+                                <p className="font-medium">Accuracy Goal:</p>
                                 <p className="text-gray-600 dark:text-gray-300">{roadmapData.key_metrics.accuracy_goal}</p>
                               </div>
                               <div>
-                                <p className="font-medium">Время ответа:</p>
+                                <p className="font-medium">Response Time:</p>
                                 <p className="text-gray-600 dark:text-gray-300">{roadmapData.key_metrics.response_time}</p>
                               </div>
                               <div>
-                                <p className="font-medium">Доступность:</p>
+                                <p className="font-medium">Availability:</p>
                                 <p className="text-gray-600 dark:text-gray-300">{roadmapData.key_metrics.availability}</p>
                               </div>
                             </div>
@@ -442,14 +441,14 @@ function App() {
                 <CardHeader>
                   <CardTitle>User Stories</CardTitle>
                   <CardDescription>
-                    Пользовательские истории и требования
+                    User stories and requirements
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   {!userStoriesData && !tabLoading.userStories && !tabErrors.userStories && (
                     <div className="text-center">
                       <Button onClick={loadUserStories} variant="outline">
-                        Загрузить пользовательские истории
+                        Load user stories
                       </Button>
                     </div>
                   )}
@@ -457,7 +456,7 @@ function App() {
                   {tabLoading.userStories && (
                     <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
                       <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-orange-500"></div>
-                      Загрузка пользовательских историй...
+                      Loading user stories...
                     </div>
                   )}
                   
@@ -465,7 +464,7 @@ function App() {
                     <div className="text-red-600 dark:text-red-400">
                       {tabErrors.userStories}
                       <Button onClick={loadUserStories} variant="outline" size="sm" className="ml-2">
-                        Повторить
+                        Retry
                       </Button>
                     </div>
                   )}
@@ -480,9 +479,9 @@ function App() {
                               <div className="flex items-center justify-between">
                                 <CardTitle className="text-lg">{story.title}</CardTitle>
                                 <Badge variant={story.priority === 'high' ? 'destructive' : story.priority === 'medium' ? 'default' : 'secondary'}>
-                                  {story.priority === 'high' ? 'Высокий' : 
-                                   story.priority === 'medium' ? 'Средний' : 
-                                   story.priority === 'low' ? 'Низкий' : story.priority}
+                                  {story.priority === 'high' ? 'High' : 
+                                   story.priority === 'medium' ? 'Medium' : 
+                                   story.priority === 'low' ? 'Low' : story.priority}
                                 </Badge>
                               </div>
                               <CardDescription>{story.description}</CardDescription>
@@ -490,11 +489,11 @@ function App() {
                             <CardContent>
                               <div className="space-y-3">
                                 <div>
-                                  <p className="text-sm font-medium mb-2">Пользователь:</p>
+                                  <p className="text-sm font-medium mb-2">User:</p>
                                   <p className="text-sm text-gray-600 dark:text-gray-300">{story.user_type}</p>
                                 </div>
                                 <div>
-                                  <p className="text-sm font-medium mb-2">Критерии приемки:</p>
+                                  <p className="text-sm font-medium mb-2">Acceptance Criteria:</p>
                                   <ul className="text-sm text-gray-600 dark:text-gray-300 space-y-1">
                                     {story.acceptance_criteria?.map((criteria, index) => (
                                       <li key={index} className="flex items-start gap-2">
@@ -506,7 +505,7 @@ function App() {
                                 </div>
                                 {story.business_value && (
                                   <div>
-                                    <p className="text-sm font-medium mb-2">Бизнес-ценность:</p>
+                                    <p className="text-sm font-medium mb-2">Business Value:</p>
                                     <p className="text-sm text-gray-600 dark:text-gray-300">{story.business_value}</p>
                                   </div>
                                 )}
@@ -524,15 +523,15 @@ function App() {
             <TabsContent value="architecture">
               <Card>
                 <CardHeader>
-                  <CardTitle>Архитектура системы</CardTitle>
+                  <CardTitle>System Architecture</CardTitle>
                   <CardDescription>
-                    Техническая архитектура Advisor AGI
+                    Technical architecture of Advisor AGI
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="text-center">
-                    <Button onClick={() => window.open('/slides/current_architecture.html', '_blank')} variant="outline">
-                      Открыть презентацию архитектуры
+                    <Button onClick={() => window.open('https://docs.google.com/presentation/d/1fJdHlDl7ZDgvYySWnxFkSN5kYMMrzMBS/edit?usp=sharing&ouid=111661644166106769460&rtpof=true&sd=true', '_blank')} variant="outline">
+                      Open Architecture Presentation
                     </Button>
                   </div>
                 </CardContent>
@@ -542,16 +541,16 @@ function App() {
             <TabsContent value="legal">
               <Card>
                 <CardHeader>
-                  <CardTitle>Юридическая информация</CardTitle>
+                  <CardTitle>Legal Information</CardTitle>
                   <CardDescription>
-                    Правовые аспекты и соответствие требованиям
+                    Legal aspects and compliance
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   {!legalData && !tabLoading.legal && !tabErrors.legal && (
                     <div className="text-center">
                       <Button onClick={loadLegal} variant="outline">
-                        Загрузить юридическую информацию
+                        Load legal information
                       </Button>
                     </div>
                   )}
@@ -559,7 +558,7 @@ function App() {
                   {tabLoading.legal && (
                     <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
                       <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-teal-500"></div>
-                      Загрузка юридической информации...
+                      Loading legal information...
                     </div>
                   )}
                   
@@ -567,7 +566,7 @@ function App() {
                     <div className="text-red-600 dark:text-red-400">
                       {tabErrors.legal}
                       <Button onClick={loadLegal} variant="outline" size="sm" className="ml-2">
-                        Повторить
+                        Retry
                       </Button>
                     </div>
                   )}
@@ -611,9 +610,8 @@ export default App
 
 
 
-
-
-
-
+          <footer className="text-center mt-8 text-gray-500 dark:text-gray-400 text-sm">
+            &copy; {new Date().getFullYear()} Advisor FirstSentience Ltd. All rights reserved.
+          </footer>
 
 

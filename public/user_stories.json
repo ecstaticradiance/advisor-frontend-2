@@ -1,48 +1,48 @@
 {
-  "title": "Ключевые пользовательские истории Advisor AGI",
+  "title": "Key User Stories for Advisor AGI",
   "stories": [
     {
       "id": "us001",
-      "title": "Как пользователь, я хочу получить структурированный совет по сложной проблеме, чтобы принять обоснованное решение.",
-      "description": "Пользователь описывает сложную ситуацию или проблему и ожидает получить от Advisor AGI структурированный ответ, включающий совет, обоснование, этическую оценку и самоанализ системы.",
-      "user_type": "Предприниматель, сталкивающийся с бизнес-дилеммой",
+      "title": "As a user, I want to receive structured advice on a complex problem to make an informed decision.",
+      "description": "The user describes a complex situation or problem and expects to receive a structured response from Advisor AGI, including advice, reasoning, ethical evaluation, and system self-analysis.",
+      "user_type": "Entrepreneur facing a business dilemma",
       "priority": "high",
       "acceptance_criteria": [
-        "Система принимает текстовый запрос пользователя.",
-        "Система возвращает ответ, разделенный на 4 блока: Совет, Обоснование, Этическая оценка, Самоанализ.",
-        "Совет является релевантным и применимым к описанной проблеме.",
-        "Обоснование четко объясняет логику принятия решения.",
-        "Этическая оценка выявляет потенциальные этические дилеммы и предлагает пути их решения.",
-        "Самоанализ системы предоставляет информацию о ее уверенности в ответе и возможных ограничениях."
+        "The system accepts the user's text query.",
+        "The system returns a response divided into 4 blocks: Advice, Reasoning, Ethical Evaluation, Self-analysis.",
+        "The advice is relevant and applicable to the described problem.",
+        "The reasoning clearly explains the decision-making logic.",
+        "The ethical evaluation identifies potential ethical dilemmas and suggests ways to resolve them.",
+        "The system's self-analysis provides information about its confidence in the answer and possible limitations."
       ],
-      "business_value": "Повышение доверия пользователей к системе и демонстрация глубины анализа."
+      "business_value": "Increasing user trust in the system and demonstrating the depth of analysis."
     },
     {
       "id": "us002",
-      "title": "Как разработчик, я хочу интегрировать Advisor AGI в свое приложение через API, чтобы расширить его функциональность.",
-      "description": "Разработчик хочет использовать возможности Advisor AGI в своем собственном приложении, отправляя запросы и получая структурированные ответы через программный интерфейс.",
-      "user_type": "Сторонний разработчик, создающий новое приложение",
+      "title": "As a developer, I want to integrate Advisor AGI into my application via API to extend its functionality.",
+      "description": "A developer wants to use Advisor AGI's capabilities in their own application by sending requests and receiving structured responses through a programmatic interface.",
+      "user_type": "Third-party developer creating a new application",
       "priority": "medium",
       "acceptance_criteria": [
-        "Предоставлена четкая и полная документация по API.",
-        "API является стабильным и надежным.",
-        "Формат запросов и ответов API соответствует ожиданиям (например, JSON).",
-        "Обработка ошибок API является предсказуемой и информативной."
+        "Clear and complete API documentation is provided.",
+        "The API is stable and reliable.",
+        "The API request and response format meets expectations (e.g., JSON).",
+        "API error handling is predictable and informative."
       ],
-      "business_value": "Расширение экосистемы Advisor AGI и увеличение числа сценариев использования."
+      "business_value": "Expanding the Advisor AGI ecosystem and increasing the number of use cases."
     },
     {
       "id": "us003",
-      "title": "Как исследователь, я хочу изучить внутреннюю логику и процесс принятия решений Advisor AGI, чтобы понять его возможности и ограничения.",
-      "description": "Исследователь заинтересован в понимании того, как Advisor AGI обрабатывает информацию и формирует ответы, чтобы оценить его потенциал для дальнейших научных исследований или улучшений.",
-      "user_type": "Ученый или AI-исследователь",
+      "title": "As a researcher, I want to study the internal logic and decision-making process of Advisor AGI to understand its capabilities and limitations.",
+      "description": "A researcher is interested in understanding how Advisor AGI processes information and forms responses to assess its potential for further scientific research or improvements.",
+      "user_type": "Scientist or AI researcher",
       "priority": "low",
       "acceptance_criteria": [
-        "Предоставлены механизмы для аудита или логирования процесса принятия решений (например, через самоанализ системы).",
-        "Доступна информация о моделях и алгоритмах, используемых в Advisor AGI.",
-        "Возможность воспроизводить результаты для анализа."
+        "Mechanisms are provided for auditing or logging the decision-making process (e.g., through system self-analysis).",
+        "Information about the models and algorithms used in Advisor AGI is accessible.",
+        "Ability to reproduce results for analysis."
       ],
-      "business_value": "Привлечение научного сообщества, потенциальные улучшения и валидация системы."
+      "business_value": "Attracting the scientific community, potential improvements, and system validation."
     }
   ]
 }

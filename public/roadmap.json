@@ -1,71 +1,71 @@
 {
-  "title": "Roadmap развития Advisor AGI",
+  "title": "Advisor AGI Development Roadmap",
   "phases": [
     {
       "id": "p1",
       "title": "Enhanced reasoning modules integration",
-      "description": "Интеграция продвинутых модулей рассуждения для улучшения качества и глубины советов.",
+      "description": "Integration of advanced reasoning modules to improve the quality and depth of advice.",
       "status": "in_progress",
       "completion": 75,
       "features": [
-        "Модули для анализа сложных сценариев",
-        "Улучшенная обработка неоднозначных запросов",
-        "Расширенная база знаний"
+        "Modules for analyzing complex scenarios",
+        "Improved handling of ambiguous queries",
+        "Expanded knowledge base"
       ]
     },
     {
       "id": "p2",
       "title": "Microservices architecture transition",
-      "description": "Переход от монолитной архитектуры к микросервисной для повышения масштабируемости и гибкости.",
+      "description": "Transition from monolithic to microservices architecture to improve scalability and flexibility.",
       "status": "planned",
       "completion": 0,
       "features": [
-        "Разделение бэкенда на независимые сервисы",
-        "Внедрение API Gateway",
-        "Оптимизация развертывания"
+        "Splitting the backend into independent services",
+        "Implementing API Gateway",
+        "Deployment optimization"
       ]
     },
     {
       "id": "p3",
       "title": "Plugin system launch",
-      "description": "Запуск системы плагинов для расширения функциональности Advisor AGI сторонними разработчиками.",
+      "description": "Launching a plugin system to extend Advisor AGI functionality for third-party developers.",
       "status": "planned",
       "completion": 0,
       "features": [
-        "Разработка SDK для плагинов",
-        "Создание маркетплейса плагинов",
-        "Интеграция с внешними сервисами"
+        "Developing SDK for plugins",
+        "Creating a plugin marketplace",
+        "Integration with external services"
       ]
     },
     {
       "id": "p4",
       "title": "Multi-model AI integration",
-      "description": "Интеграция различных моделей ИИ для использования их сильных сторон в разных областях.",
+      "description": "Integrating various AI models to leverage their strengths in different areas.",
       "status": "planned",
       "completion": 0,
       "features": [
-        "Поддержка нескольких базовых моделей ИИ",
-        "Механизмы выбора оптимальной модели для задачи",
-        "Сравнение и оценка производительности моделей"
+        "Support for multiple base AI models",
+        "Mechanisms for selecting the optimal model for a task",
+        "Comparison and evaluation of model performance"
       ]
     },
     {
       "id": "p5",
       "title": "Autonomous learning capabilities",
-      "description": "Разработка возможностей автономного обучения и самосовершенствования системы.",
+      "description": "Developing autonomous learning and self-improvement capabilities for the system.",
       "status": "planned",
       "completion": 0,
       "features": [
-        "Механизмы обратной связи и адаптации",
-        "Автоматическое обновление знаний",
-        "Улучшение качества советов на основе опыта"
+        "Feedback and adaptation mechanisms",
+        "Automatic knowledge updates",
+        "Improving advice quality based on experience"
       ]
     }
   ],
   "key_metrics": {
-    "target_users": "Предприниматели, менеджеры, исследователи",
-    "accuracy_goal": "95% релевантность и точность советов",
-    "response_time": "< 2 секунды",
+    "target_users": "Entrepreneurs, managers, researchers",
+    "accuracy_goal": "95% relevance and accuracy of advice",
+    "response_time": "< 2 seconds",
     "availability": "99.9%"
   }
 }
