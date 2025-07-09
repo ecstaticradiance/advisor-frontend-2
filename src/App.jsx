@@ -21,7 +21,6 @@ function App() {
   // Состояния для навигационных вкладок
   const [roadmapData, setRoadmapData] = useState(null)
   const [userStoriesData, setUserStoriesData] = useState(null)
-  const [architectureHtml, setArchitectureHtml] = useState(null)
   const [legalData, setLegalData] = useState(null)
   const [tabLoading, setTabLoading] = useState({})
   const [tabErrors, setTabErrors] = useState({})
@@ -127,26 +126,6 @@ function App() {
       setTabErrors(prev => ({ ...prev, roadmap: 'Ошибка подключения к серверу' }))
     } finally {
       setTabLoading(prev => ({ ...prev, roadmap: false }))
-    }
-  }
-
-  // Загрузка HTML-файла архитектуры
-  const loadArchitectureHtml = async () => {
-    setTabLoading(prev => ({ ...prev, architecture: true }))
-    setTabErrors(prev => ({ ...prev, architecture: null }))
-    try {
-      const res = await fetch('/slides/current_architecture.html') // Path to the HTML slide
-      if (res.ok) {
-        const html = await res.text()
-        setArchitectureHtml(html)
-      } else {
-        setTabErrors(prev => ({ ...prev, architecture: `Ошибка загрузки: ${res.status}` }))
-      }
-    } catch (error) {
-      console.error('Error loading architecture HTML:', error)
-      setTabErrors(prev => ({ ...prev, architecture: 'Ошибка подключения к серверу' }))
-    } finally {
-      setTabLoading(prev => ({ ...prev, architecture: false }))
     }
   }
 
@@ -551,35 +530,11 @@ function App() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  {!architectureHtml && !tabLoading.architecture && !tabErrors.architecture && (
-                    <div className="text-center">
-                      <Button onClick={loadArchitectureHtml} variant="outline">
-                        Загрузить информацию об архитектуре
-                      </Button>
-                    </div>
-                  )}
-                  
-                  {tabLoading.architecture && (
-                    <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
-                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-purple-500"></div>
-                      Загрузка информации об архитектуре...
-                    </div>
-                  )}
-                  
-                  {tabErrors.architecture && (
-                    <div className="text-red-600 dark:text-red-400">
-                      {tabErrors.architecture}
-                      <Button onClick={loadArchitectureHtml} variant="outline" size="sm" className="ml-2">
-                        Повторить
-                      </Button>
-                    </div>
-                  )}
-                  
-                  {architectureHtml && (
-                    <div className="space-y-6">
-                      <div dangerouslySetInnerHTML={{ __html: architectureHtml }} />
-                    </div>
-                  )}
+                  <div className="text-center">
+                    <Button onClick={() => window.open('/slides/current_architecture.html', '_blank')} variant="outline">
+                      Открыть презентацию архитектуры
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
             </TabsContent>
@@ -652,5 +607,13 @@ function App() {
 }
 
 export default App
+
+
+
+
+
+
+
+
 
 
