@@ -160,7 +160,7 @@ function App() {
         { name: 'AdvisorAGIWhitePaper.pdf', filename: 'AdvisorAGIWhitePaper.pdf' },
         { name: 'REGISTER.pdf', filename: 'REGISTER.pdf' },
         { name: 'CERTIFICATE.pdf', filename: 'CERTIFICATE.pdf' },
-        { name: 'Advisor Presentation (14 slides)', url: 'https://ecstaticradiance.github.io/advisor-presentation/' }
+{ name: 'Advisor Presentation (14 slides)', url: 'https://ecstaticradiance.github.io/advisor-presentation/' }
       ];
       setLegalData({ title: 'Legal Documents', documents: files });
     } catch (error) {
@@ -579,8 +579,7 @@ function App() {
                               <CardTitle className="text-lg flex items-center gap-2">
                                 <FileText className="h-5 w-5" />
                                 <a 
-                                  href={`/${doc.filename}`}
-                                  target="_blank"
+                                  href={ doc.url ? doc.url : `/${doc.filename}` }  target="_blank"
                                   rel="noopener noreferrer"
                                   className="text-blue-600 hover:underline"
                                 >
