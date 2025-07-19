@@ -156,11 +156,11 @@ function App() {
     try {
       // Assuming a simple API endpoint or direct file listing is not available
       // We will hardcode the file names for now, or implement a backend endpoint to list files
-      const files = [
-        'IPAssignmentAgreementмеждутобойкакфизлицом(создателем)июридическимлицомFirstSentienceLtd.pdf',
-        'LicenseЛицензия.pdf',
+        const files = [
+        'AdvisorAGIWhitePaper.pdf',
         'REGISTER.pdf',
-        'CERTIFICATE.pdf'
+        'CERTIFICATE.pdf',
+        { name: 'Advisor Presentation (14 slides)', url: 'https://ecstaticradiance.github.io/advisor-presentation/' }
       ];
       setLegalData({ title: 'Legal Documents', documents: files });
     } catch (error) {
@@ -190,7 +190,7 @@ function App() {
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
         <div className="container mx-auto px-4 py-8">
           <header className="text-center mb-8">
-            <img src="/advisor_logo.png" alt="Advisor AGI Logo" className="mx-auto h-24 w-24 mb-4" />
+            <img src="/logo.png" alt="Advisor AGI Logo" className="mx-auto h-24 w-24 mb-4" />
             <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
               Advisor AGI
             </h1>
@@ -530,9 +530,7 @@ function App() {
                 </CardHeader>
                 <CardContent>
                   <div className="text-center">
-                    <Button onClick={() => window.open("https://3dhkilcqk1zg.manus.space", "_blank")} variant="outline">
-                      Open Architecture Presentation
-                    </Button>
+                    <img src="/architecture.png" alt="System Architecture Diagram" className="mx-auto max-w-full h-auto" />
                   </div>
                 </CardContent>
               </Card>
