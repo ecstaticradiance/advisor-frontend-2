@@ -157,9 +157,9 @@ function App() {
       // Assuming a simple API endpoint or direct file listing is not available
       // We will hardcode the file names for now, or implement a backend endpoint to list files
         const files = [
-        'AdvisorAGIWhitePaper.pdf',
-        'REGISTER.pdf',
-        'CERTIFICATE.pdf',
+        { name: 'AdvisorAGIWhitePaper.pdf', filename: 'AdvisorAGIWhitePaper.pdf' },
+        { name: 'REGISTER.pdf', filename: 'REGISTER.pdf' },
+        { name: 'CERTIFICATE.pdf', filename: 'CERTIFICATE.pdf' },
         { name: 'Advisor Presentation (14 slides)', url: 'https://ecstaticradiance.github.io/advisor-presentation/' }
       ];
       setLegalData({ title: 'Legal Documents', documents: files });
@@ -579,12 +579,12 @@ function App() {
                               <CardTitle className="text-lg flex items-center gap-2">
                                 <FileText className="h-5 w-5" />
                                 <a 
-                                  href={`/legal_documents/${doc}`}
+                                  href={`/${doc.filename}`}
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   className="text-blue-600 hover:underline"
                                 >
-                                  {doc}
+                                  {doc.name}
                                 </a>
                               </CardTitle>
                             </CardHeader>
